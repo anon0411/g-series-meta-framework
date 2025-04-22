@@ -1,0 +1,28 @@
+{
+    "title": "G-Series Meta Framework: A Structural Control Experiment on Intent Absence",
+    "upload_type": "dataset",
+    "description": "This repository presents a meta-experimental framework based on the G-series, where quantum circuit structures were tested under conditions with foundational experimental assets intentionally removed. The failure to generate function is analyzed as proof of dependency on user-supplied assets and feedback conditions.\n\n이 리포지터리는 G시리즈 기반의 메타 실험 프레임워크로, 실험적 기반 자산이 제거된 조건에서 구조의 반응성을 실험하고 분석한 자료입니다. 구조가 기능을 낳지 못하는 실패를 통해, 사용자 자산과 피드백 조건의 존재 의존성을 입증합니다.",
+    "creators": [
+      {
+        "name": "Anonymous",
+        "affiliation": "Independent Researcher"
+      },
+      {
+        "name": "PiTer (ChatGPT)",
+        "affiliation": "OpenAI"
+      }
+    ],
+    "keywords": [
+      "quantum-circuit",
+      "intent",
+      "structure",
+      "feedback",
+      "meta-experiment",
+      "PiTer",
+      "generative-model"
+    ],
+    "license": "CC-BY-4.0",
+    "language": "eng",
+    "notes": "This repository does not include a formal paper. It is self-contained as a meta-experimental structure, with all observations embedded in the repository’s file and folder organization.\n\n이 리포지터리는 별도의 논문 없이 리포 구조 자체로 실험을 구성하고 있습니다."
+  }
+  
