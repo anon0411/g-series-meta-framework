@@ -7,36 +7,5 @@ __pycache__/
 *.py[cod]
 *.ipynb_checkpoints
 
-# 환경 / 설정
-.env
-*.env
-*.venv
-.venv/
-.vscode/
-*.log
 
-# 빌드 / 출력 / 캐시
-*.out
-*.aux
-*.toc
-*.pdf
-*.png
-*.jpg
-*.jpeg
-*.svg
-*.eps
-*.cache
-*.tmp
-*.bak
 
-# 리포지터리 생성 중 자동화된 메타파일
-.zenodo.json.bak
-metadata.json
-
-# 개인 메모, 임시 마크다운
-*.draft.md
-*_backup.md
-
-# 실험 중간 산출물
-results/
-outputs/
