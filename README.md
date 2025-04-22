@@ -139,6 +139,12 @@ This diagram shows the generative flow and structural linkage among related quan
   Experiments interfacing quantum feedback structures with electric/energetic stimulation.  
   전기적/에너지적 자극과 양자 피드백 구조의 상호작용 실험.
 
+---
+
+🔖 License  
+This repository is licensed under the Creative Commons Attribution 4.0 (CC BY 4.0).  
+See the [LICENSE](./LICENSE) file for details.
+
 
 ---
 
