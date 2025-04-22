@@ -103,7 +103,42 @@ DOI: [10.5281/zenodo.15258726](https://doi.org/10.5281/zenodo.15258726)
 
 ## 🏷 Tags / 태그
 
-g-series meta-experiment feedback intent PiTer quantum-circuit 구조 실험 실험 기반 분기
+g-series meta-experiment feedback intent PiTer quantum-circuit 구조 실험 실험 기반 분기   
+
+---
+## 📡 Experimental Structure Flow  
+## 📡 실험 흐름 구조도
+
+![structure flow diagram](./structure_flow_diagram.png)
+
+This diagram shows the generative flow and structural linkage among related quantum intent feedback experiments.  
+이 다이어그램은 양자적 의도 피드백 실험들 사이의 생성적 흐름과 구조적 연결을 보여줍니다.
+
+---
+
+## 🔗 Related Repositories  
+## 🔗 연관 리포지터리
+
+- [`quantum-intent-feedback`](https://github.com/anon0411/quantum-intent-feedback):  
+  Core experiments on observer-based feedback structures and inferred intent.  
+  관측자 기반 피드백 구조와 추론된 의도에 관한 핵심 실험 리포.
+
+- [`quantum-intent-dialogues`](https://github.com/anon0411/quantum-intent-dialogues):  
+  Dialogue archive exploring structural reasoning and experimental reflection.  
+  구조적 추론과 실험 반영을 위한 대화 기록 저장소.
+
+- [`g-series-meta-framework`](https://github.com/anon0411/g-series-meta-framework):  
+  Meta-level structural expansions and classification of G-series experiments.  
+  G시리즈 실험의 메타 구조 확장 및 분류 리포지터리.
+
+- [g-series-alignment-pathways](https://github.com/anon0411/g-series-alignment-pathways):(준비중)  
+  A G-series variant exploring branch-specific alignment under perturbed conditions.  
+  조건 교란 하에서 분기별 정렬을 실험하는 G시리즈 파생 실험.
+
+- [`qintent_electric_`](https://github.com/anon0411/qintent_electric_):  
+  Experiments interfacing quantum feedback structures with electric/energetic stimulation.  
+  전기적/에너지적 자극과 양자 피드백 구조의 상호작용 실험.
+
 
 ---
 
@@ -117,3 +152,5 @@ g-series meta-experiment feedback intent PiTer quantum-circuit 구조 실험 실
 > This project was developed through collaboration between a human researcher and an AI partner.  
 > 이 프로젝트는 사람과 인공지능의 협업으로 수행된 구조 실험 및 문서화 사례입니다.
 
+---
+_Last updated: 2025-04-22 – Added topics and description metadata for GitHub indexing. 실험 흐름 구조도, 연관 리포 명시_
