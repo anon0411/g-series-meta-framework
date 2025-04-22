@@ -1,0 +1,57 @@
+# [조건 A] 관측자 개입 있음 (With Observation)
+
+from qiskit import QuantumCircuit, transpile, assemble
+from qiskit_aer import Aer
+from qiskit.visualization import plot_histogram
+import matplotlib.pyplot as plt
+import random
+from qiskit.visualization import plot_histogram
+import matplotlib.pyplot as plt
+
+# 공통 회로 생성 함수
+def create_base_circuit():
+    qc = QuantumCircuit(2, 2)
+    qc.h(0)
+    qc.cx(0, 1)
+    qc.measure([0, 1], [0, 1])
+    return qc
+
+# 실험 실행 함수
+def run_experiment(shots=100, observe=True):
+    backend = Aer.get_backend('aer_simulator')
+    all_results = []
+    for i in range(10):  # 동일 회로 10회 반복 실행
+        qc = create_base_circuit()
+        tqc = transpile(qc, backend)
+        qobj = assemble(tqc, shots=shots)
+        result = backend.run(qobj).result()
+        counts = result.get_counts()
+        
+        if observe:
+            # 관측자 개입: 결과 저장
+            all_results.append(counts)
+        else:
+            # 관측자 미개입: 결과 폐기 (의미 없이 discard)
+            _ = counts
+
+    return all_results
+
+# 관측자 개입 실험 실행
+observed_results = run_experiment(observe=True)
+
+# 결과 집계
+aggregate_counts = {}
+for res in observed_results:
+    for key, val in res.items():
+        aggregate_counts[key] = aggregate_counts.get(key, 0) + val
+
+print("집계된 관측자 개입 결과:", aggregate_counts)
+
+# 히스토그램 시각화
+# aggregate_counts는 이미 수집된 결과라고 가정
+fig = plt.figure(figsize=(6, 4))
+ax = fig.add_subplot(1, 1, 1)
+plot_histogram(aggregate_counts, ax=ax)
+ax.set_title("G-D': 관측자 개입 있음 (With Observer)")
+plt.tight_layout()
+plt.show()

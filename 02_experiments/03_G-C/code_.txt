@@ -1,0 +1,65 @@
+# "관측이 구조를 만든다"는 주장을 넘어서, 한 번 생성된 구조가 이후에도 스스로를 유지할 수 있는가를 검증합니다.
+# 즉, 한 번 선택된 구조적 경로가 다음 회로에도 영향을 끼치는지를 실험을 통해 확인합니다.
+
+import matplotlib.pyplot as plt
+import matplotlib as mpl
+
+# 맥OS에서 사용할 수 있는 대표 한글 폰트
+plt.rcParams['font.family'] = 'AppleGothic'
+
+# 마이너스 깨짐 방지
+mpl.rcParams['axes.unicode_minus'] = False
+
+
+from qiskit import QuantumCircuit, QuantumRegister, ClassicalRegister
+from qiskit_aer import Aer
+import matplotlib.pyplot as plt
+
+# 시뮬레이터 로딩
+simulator = Aer.get_backend('aer_simulator')
+
+# 1차 회로
+qr1 = QuantumRegister(2, 'q')
+cr1 = ClassicalRegister(2, 'c')
+circuit1 = QuantumCircuit(qr1, cr1)
+circuit1.h(qr1[0])
+circuit1.cx(qr1[0], qr1[1])
+circuit1.measure(qr1, cr1)
+
+# 2차 회로
+qr2 = QuantumRegister(2, 'q')
+cr2 = ClassicalRegister(2, 'c')
+circuit2 = QuantumCircuit(qr2, cr2)
+circuit2.h(qr2[0])
+circuit2.cx(qr2[0], qr2[1])
+circuit2.measure(qr2, cr2)
+
+# 실행 (각각 5000회)
+job1 = simulator.run(circuit1, shots=5000, seed_simulator=42)
+job2 = simulator.run(circuit2, shots=5000, seed_simulator=99)
+
+# 결과 획득
+result1 = job1.result()
+result2 = job2.result()
+
+counts1 = result1.get_counts()
+counts2 = result2.get_counts()
+
+# 결과 출력
+print("🔍 1차 회로 (구조 생성) 결과:", counts1)
+print("🔍 2차 회로 (구조 유지력) 결과:", counts2)
+
+# 시각화
+fig, axs = plt.subplots(1, 2, figsize=(12, 4))
+axs[0].bar(counts1.keys(), counts1.values())
+axs[0].set_title('1차 회로 (구조 생성)')
+axs[0].set_xlabel('측정 결과')
+axs[0].set_ylabel('Counts')
+
+axs[1].bar(counts2.keys(), counts2.values())
+axs[1].set_title('2차 회로 (구조 유지력)')
+axs[1].set_xlabel('측정 결과')
+axs[1].set_ylabel('Counts')
+
+plt.tight_layout()
+plt.show()

@@ -1,0 +1,31 @@
+#검증용 회로 코드
+
+from qiskit import QuantumCircuit
+from qiskit_aer import Aer
+from qiskit.visualization import plot_histogram
+import matplotlib.pyplot as plt
+
+# 회로 정의
+qc = QuantumCircuit(2, 2)
+qc.h(0)
+qc.cx(0, 1)
+qc.measure([0, 1], [0, 1])
+
+# 시뮬레이터
+sim = Aer.get_backend('aer_simulator')
+
+print("Running verification circuit...")
+result = sim.run(qc, shots=1024).result()
+counts = result.get_counts()
+print("Execution complete.")
+print("Counts:", counts)
+
+# 시각화
+plot_histogram(counts, title="G-B 검증용 회로 결과")
+plt.show()
+
+
+# result :
+# Running verification circuit...
+# Execution complete.
+# Counts: {'11': 505, '00': 519}

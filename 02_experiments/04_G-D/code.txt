@@ -1,0 +1,77 @@
+from qiskit import QuantumCircuit, QuantumRegister, ClassicalRegister
+from qiskit_aer import Aer
+from collections import Counter
+import matplotlib.pyplot as plt
+
+# 시뮬레이터 설정
+simulator = Aer.get_backend('aer_simulator')
+
+# 반복 횟수
+n_trials = 10
+shots = 1024
+
+# 결과 저장
+pairs = []
+
+# 회로 실행 반복
+for i in range(n_trials):
+    # 1차 회로 (구조 생성)
+    qr1 = QuantumRegister(2)
+    cr1 = ClassicalRegister(2)
+    circ1 = QuantumCircuit(qr1, cr1)
+    circ1.h(0)
+    circ1.cx(0, 1)
+    circ1.measure([0, 1], [0, 1])
+
+    result1 = simulator.run(circ1, shots=shots).result()
+    counts1 = result1.get_counts()
+    result1_major = max(counts1, key=counts1.get)
+
+    # 2차 회로 (자기 반복 여부 관측)
+    qr2 = QuantumRegister(2)
+    cr2 = ClassicalRegister(2)
+    circ2 = QuantumCircuit(qr2, cr2)
+    circ2.h(0)
+    circ2.cx(0, 1)
+    circ2.measure([0, 1], [0, 1])
+
+    result2 = simulator.run(circ2, shots=shots).result()
+    counts2 = result2.get_counts()
+    result2_major = max(counts2, key=counts2.get)
+
+    # 결과 쌍 저장
+    pairs.append((result1_major, result2_major))
+    print(f"Trial {i+1}: {result1_major} → {result2_major}")
+
+# 통계 분석
+match_count = sum([1 for a, b in pairs if a == b])
+print(f"\n🧮 동일한 결과 반복된 횟수: {match_count} / {n_trials}")
+
+# 시각화
+labels = [f"{a}→{b}" for a, b in pairs]
+counts = Counter(labels)
+
+plt.figure(figsize=(10, 4))
+plt.bar(counts.keys(), counts.values())
+plt.title("G-D 구조 자기 반복 결과 쌍")
+plt.xlabel("1차 결과 → 2차 결과")
+plt.ylabel("빈도 (횟수)")
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+
+
+
+#result :
+#Trial 1: 11 → 00
+#Trial 2: 00 → 11
+#Trial 3: 11 → 00
+#Trial 4: 00 → 11
+#Trial 5: 11 → 11
+#Trial 6: 00 → 00
+#Trial 7: 00 → 00
+#Trial 8: 11 → 00
+#Trial 9: 11 → 00
+#Trial 10: 11 → 00
+
+#🧮 동일한 결과 반복된 횟수: 3 / 10

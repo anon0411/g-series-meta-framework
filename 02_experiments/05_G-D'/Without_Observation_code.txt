@@ -1,0 +1,61 @@
+from qiskit import QuantumCircuit, transpile, assemble
+from qiskit_aer import Aer
+import pickle  # 결과를 파일로 저장할 수 있음
+
+# 회로 생성 함수
+def create_base_circuit():
+    qc = QuantumCircuit(2, 2)
+    qc.h(0)
+    qc.cx(0, 1)
+    qc.measure([0, 1], [0, 1])
+    return qc
+
+# 관측자 미개입 조건: 결과 기록은 하지만 즉시 시각화/출력하지 않음
+def run_unobserved_experiment(shots=100):
+    backend = Aer.get_backend('aer_simulator')
+    all_results = []
+    for i in range(10):
+        qc = create_base_circuit()
+        tqc = transpile(qc, backend)
+        qobj = assemble(tqc, shots=shots)
+        result = backend.run(qobj).result()
+        counts = result.get_counts()
+        all_results.append(counts)
+    
+    return all_results
+
+# 실행
+unobserved_results = run_unobserved_experiment()
+
+# (선택) 파일로 저장하고 나중에 불러보기 위한 코드
+with open("gdp_unobserved_results.pkl", "wb") as f:
+    pickle.dump(unobserved_results, f)
+
+print("관측자 미개입 조건 회로 실행 완료. 결과는 저장되었지만 시각화되지 않았습니다.")
+
+
+
+#시각화
+
+import pickle
+from qiskit.visualization import plot_histogram
+import matplotlib.pyplot as plt
+
+# 저장된 결과 불러오기
+with open("gdp_unobserved_results.pkl", "rb") as f:
+    unobserved_results = pickle.load(f)
+
+# 결과 집계
+aggregate_counts = {}
+for res in unobserved_results:
+    for key, val in res.items():
+        aggregate_counts[key] = aggregate_counts.get(key, 0) + val
+
+# 히스토그램 시각화
+fig = plt.figure(figsize=(6, 4))
+ax = fig.add_subplot(1, 1, 1)
+plot_histogram(aggregate_counts, ax=ax)
+ax.set_title("G-D': 관측자 미개입 (Without Observer)")
+plt.tight_layout()
+plt.show()
+

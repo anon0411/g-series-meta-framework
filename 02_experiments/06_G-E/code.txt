@@ -1,0 +1,30 @@
+from qiskit import QuantumCircuit, transpile
+from qiskit_aer import AerSimulator
+from qiskit.visualization import plot_histogram
+
+qc = QuantumCircuit(3, 2)
+
+# 분기 조건 초기화: q[0]을 superposition으로 하여 확률적으로 선택
+qc.h(0)
+
+# 구조 A: q[0]이 |0>일 때만 실행
+qc.x(0)
+qc.cx(0, 1)
+qc.x(0)
+
+# 구조 B: q[0]이 |1>일 때만 실행
+qc.cx(0, 2)
+
+# 측정: 구조 A 결과는 q[1], 구조 B는 q[2]
+qc.measure(1, 0)
+qc.measure(2, 1)
+
+# 시뮬레이터 실행
+simulator = AerSimulator()
+compiled = transpile(qc, simulator)
+result = simulator.run(compiled, shots=1024).result()
+counts = result.get_counts()
+
+# 출력
+print(counts)
+plot_histogram(counts)
