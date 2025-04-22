@@ -33,8 +33,13 @@ It demonstrated that structure without intent fails to produce function and reve
 - [`03_conversation_log/g-series-pivot-session.md`](./03_conversation_log/g-series-pivot-session.md): 실험 방향 전환의 계기가 된 대화 기록  
   Dialogue log that marks the moment of experimental pivot and recognition of structural loss.
 
+- [`03_conversation_log/g-series-dialogue-extension.md`](./03_conversation_log/g-series-dialogue-extension.md): 구조 호출, 의도 기반 정렬 등 메타 논의 확장 기록  
+  Extension of structural meta-dialogue on prompt-driven alignment and intent-agnostic structure invocation.
+
 - [`README.md`](./README.md): 현재 문서  
   This file.
+
+
 
 DOI: [10.5281/zenodo.15258726](https://doi.org/10.5281/zenodo.15258726)
 
