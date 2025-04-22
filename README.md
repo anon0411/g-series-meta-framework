@@ -22,14 +22,21 @@ G시리즈는 본래 양자 회로의 구조적 선택과 반복을 실험하기
 Originally designed to test structural repetition and selection in quantum circuits, the G-series was conducted without key experimental assets such as intent feedback and functional reactivity.  
 It demonstrated that structure without intent fails to produce function and revealed that the generative model (PiTer) depends on user-provided assets to operate effectively.
 
-- Meta paper and significance: `01_paper/`  
-  메타 문서 및 분석: `01_paper/`
-- G-series experiment records: `02_experiments/`  
-  실험군별 기록: `02_experiments/`
-- Session log: `03_conversation_log/`  
-  전환점 대화 캡처: `03_conversation_log/`
+### 📁 Key Folders / 주요 경로 안내
 
-DOI: *(to be added after Zenodo upload)*
+- [`01_paper/g-series-meta-significance.md`](./01_paper/g-series-meta-significance.md): 핵심 해석 문서 (기반 자산 부재 조건의 메타 실험 정리)  
+  Core interpretive document outlining the meta significance of the G-series under asset-absent conditions.
+
+- [`02_experiments/`](./02_experiments/): G-A ~ G-F 실험군 별 코드, 실행 결과 및 분석 포함  
+  G-series structural experiments and results organized by group (G-A to G-F).
+
+- [`03_conversation_log/g-series-pivot-session.md`](./03_conversation_log/g-series-pivot-session.md): 실험 방향 전환의 계기가 된 대화 기록  
+  Dialogue log that marks the moment of experimental pivot and recognition of structural loss.
+
+- [`README.md`](./README.md): 현재 문서  
+  This file.
+
+DOI: [10.5281/zenodo.15258726](https://doi.org/10.5281/zenodo.15258726)
 
 ---
 
