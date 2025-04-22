@@ -1,4 +1,4 @@
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15258726.svg)](https://doi.org/10.5281/zenodo.15258726)
 ![Topics: g-series, meta-experiment, intent-absence, structural-limitation, PiTer, feedback-conditions](https://img.shields.io/badge/topics-g--series%2C%20meta--experiment%2C%20intent--absence%2C%20structural--limitation%2C%20PiTer%2C%20feedback--conditions-blue)
 
 # G-Series Meta Framework  
