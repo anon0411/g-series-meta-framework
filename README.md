@@ -1,4 +1,4 @@
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15258801.svg)](https://doi.org/10.5281/zenodo.15258801)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15287031.svg)](https://doi.org/10.5281/zenodo.15287031)
 ![Topics: g-series, meta-experiment, structure-responsiveness, structural-limitation, PiTer, feedback-conditions](https://img.shields.io/badge/topics-g--series%2C%20meta--experiment%2C%20structure--responsiveness%2C%20structural--limitation%2C%20PiTer%2C%20feedback--conditions-blue)
 
 # G-Series Meta Framework  
